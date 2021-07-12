@@ -1,10 +1,10 @@
 package com.example.demo.repository.postgresql;
 
-import com.example.demo.repository.postgresql.entity.Postgresql;
+import com.example.demo.repository.postgresql.entity.Parent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostgresqlRepository extends JpaRepository<Postgresql, String> {
+public interface ParentRepository extends JpaRepository<Parent, String> {
 
 }

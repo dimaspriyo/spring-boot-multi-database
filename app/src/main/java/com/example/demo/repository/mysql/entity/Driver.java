@@ -3,11 +3,12 @@ package com.example.demo.repository.mysql.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "mysql_table")
-public class Mysql {
+@Table(name = "driver")
+public class Driver {
 
     @Id
     private String id;
@@ -15,7 +16,8 @@ public class Mysql {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "birth_date")
-    private String birthDate;
-}
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private Car car;
 
+}
