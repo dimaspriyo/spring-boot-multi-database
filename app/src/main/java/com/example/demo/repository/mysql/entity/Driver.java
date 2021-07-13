@@ -1,13 +1,18 @@
 package com.example.demo.repository.mysql.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "driver")
+@Builder
 public class Driver {
 
     @Id
@@ -17,7 +22,6 @@ public class Driver {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "car_id")
     private Car car;
 
 }

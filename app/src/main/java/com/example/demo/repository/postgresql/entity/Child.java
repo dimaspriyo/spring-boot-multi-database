@@ -1,13 +1,19 @@
 package com.example.demo.repository.postgresql.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "child")
+@Builder
 public class Child {
 
     @Id
@@ -20,7 +26,6 @@ public class Child {
     private Date birthDate;
 
     @ManyToOne
-    @JoinColumn(name = "parent_id")
     private Parent parent;
 
 }
