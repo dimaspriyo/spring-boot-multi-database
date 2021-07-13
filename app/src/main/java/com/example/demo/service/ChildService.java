@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ChildService {
@@ -13,7 +14,14 @@ public class ChildService {
     @Autowired
     ChildRepository childRepository;
 
-    public List<Child> findAll() { return childRepository.findAll(); }
+    public List<Child> findAll() { return childRepository.findAll().stream().map(child -> buildChild(child)).collect(Collectors.toList()); }
 
-    public Child findById(String id) throws Exception {return childRepository.findById(id).orElseThrow(() -> new Exception("Child Not Found"));}
+    public Child findById(String id) throws Exception {return childRepository.findById(id).map(child -> buildChild(child)).orElseThrow(() -> new Exception("Child Not Found"));}
+
+    public Child buildChild(Child child){
+        return Child.builder()
+                .id(child.getId())
+                .name(child.getName())
+                .birthDate(child.getBirthDate()).build();
+    }
 }

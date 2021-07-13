@@ -12,6 +12,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -19,6 +20,7 @@ import java.util.HashMap;
 @Lazy
 @Configuration
 @PropertySource(value = "classpath:postgresql.datasource.properties")
+@EnableTransactionManagement
 @EnableJpaRepositories(
         basePackages = {"com.example.demo.repository.postgresql"},
         entityManagerFactoryRef = "postgresqlEntityManagerFactory",

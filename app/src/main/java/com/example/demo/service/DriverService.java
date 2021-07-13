@@ -14,12 +14,19 @@ public class DriverService {
     @Autowired
     DriverRepository driverRepository;
 
-    public List<Driver> findAll(){
-        return driverRepository.findAll().stream().collect(Collectors.toList());
+    public List<Driver> findAll() {
+        return driverRepository.findAll().stream().map(driver -> buildDriver(driver)).collect(Collectors.toList());
     }
 
     public Driver findById(String id) throws Exception {
-        return driverRepository.findById(id).orElseThrow(() -> new Exception("Not Found"));
+        return driverRepository.findById(id).map(driver -> buildDriver(driver)).orElseThrow(() -> new Exception("Not Found"));
+    }
+
+    public Driver buildDriver(Driver driver) {
+        return Driver.builder()
+                .id(driver.getId())
+                .name(driver.getName())
+                .build();
     }
 
 }

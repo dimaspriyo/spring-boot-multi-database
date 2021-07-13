@@ -26,8 +26,8 @@ public class Car {
     @Column(name = "production_date")
     private Date productionDate;
 
-    @OneToMany
-    @JoinColumn(name = "driver")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id")
     private List<Driver> driver;
 
 }

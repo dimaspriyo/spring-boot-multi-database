@@ -23,10 +23,10 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
-CREATE SCHEMA public;
+-- CREATE SCHEMA public;
 
 
-ALTER SCHEMA public OWNER TO postgres;
+-- ALTER SCHEMA public OWNER TO postgres;
 
 --
 -- TOC entry 2919 (class 0 OID 0)
@@ -54,7 +54,7 @@ CREATE TABLE public.child (
 );
 
 
-ALTER TABLE public.child OWNER TO postgres;
+-- ALTER TABLE public.child OWNER TO postgres;
 
 --
 -- TOC entry 203 (class 1259 OID 19758)
@@ -67,7 +67,7 @@ CREATE TABLE public.parent (
 );
 
 
-ALTER TABLE public.parent OWNER TO postgres;
+-- ALTER TABLE public.parent OWNER TO postgres;
 
 --
 -- TOC entry 2912 (class 0 OID 19750)
